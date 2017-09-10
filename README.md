@@ -1,8 +1,11 @@
-# Canteen Project (Foster City, CA - August 28, 2017)
+# Project Canteen - Foster City 2nd Cohort
 
-Canteen gift card project for the Visa NCG Enterprise Java course - Foster City 2nd Edition.
+Canteen gift card project for the Visa NCG Enterprise Java course in Foster City, CA.
 
 ## Participants
 
-* Ted M. Young - tedyoung
-* (add your name and GitHub username here)
+Add your name...
+
+* Ted M. Young
+
+
