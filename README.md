@@ -5,6 +5,7 @@ Canteen gift card project for the Visa NCG Enterprise Java course in Foster City
 ## Participants
 
 Add your name...
+Henry Wang
 
 * Ted M. Young
 
