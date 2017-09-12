@@ -20,6 +20,9 @@ public class Account {
   }
 
   public void withdraw(int amount) {
+    if (amount > balance) {
+      throw new RuntimeException();
+    }
     balance -= amount;
   }
 }
