@@ -21,7 +21,7 @@ public class Account {
 
   public void withdraw(int amount) {
     if (amount > balance) {
-      throw new RuntimeException();
+      throw new InsufficientBalanceException();
     }
     balance -= amount;
   }

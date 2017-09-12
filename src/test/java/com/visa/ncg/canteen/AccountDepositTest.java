@@ -50,7 +50,7 @@ public class AccountDepositTest {
     Account account = new Account(2);
 
     assertThatThrownBy(() -> { account.withdraw(12); })
-        .isInstanceOf(Exception.class);
+        .isInstanceOf(InsufficientBalanceException.class);
   }
 
   @Test
