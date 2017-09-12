@@ -34,4 +34,14 @@ public class AccountDepositTest {
         .isEqualTo(15);
   }
 
+  @Test
+  public void withdraw3DollarsFromAccountHaving7DollarsResultsIn4DollarBalance() throws Exception {
+    Account account = new Account(7);
+
+    account.withdraw(3);
+
+    assertThat(account.balance())
+        .isEqualTo(4);
+  }
+
 }
