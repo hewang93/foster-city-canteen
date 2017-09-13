@@ -3,7 +3,9 @@ package com.visa.ncg.canteen;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -15,7 +17,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest
+@SpringBootTest
+@AutoConfigureMockMvc
 public class AccountRestTest {
 
     @Autowired
@@ -23,7 +26,7 @@ public class AccountRestTest {
 
     @Test
     public void getReturnsJsonContainingBalance() throws Exception {
-        MvcResult result = mockMvc.perform(get("/api/accounts/123"))
+        MvcResult result = mockMvc.perform(get("/api/accounts/0"))
                 .andExpect(status().isOk())
                 .andReturn();
         String body = result.getResponse().getContentAsString();
@@ -33,9 +36,9 @@ public class AccountRestTest {
 
     @Test
     public void getWithAccountIdReturnsAccountAndBalanceForThatId() throws Exception {
-        mockMvc.perform(get("/api/accounts/1"))
+        mockMvc.perform(get("/api/accounts/0"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.id").value(0))
                 .andExpect(jsonPath("$.balance").value("10"));
     }
 
