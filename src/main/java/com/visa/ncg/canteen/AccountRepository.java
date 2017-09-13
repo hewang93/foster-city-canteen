@@ -11,7 +11,7 @@ public class AccountRepository {
     public AccountRepository(List<Account> accounts) {
 
         for (Account ac : accounts) {
-            accountRepo.put(ac.getId(), ac);
+            this.save(ac);
         }
 
     }
@@ -29,16 +29,16 @@ public class AccountRepository {
         // if the account came in with NO id, replace it with one generated from AtomicLong.
         // return the Account object that must now have its id set
         Long longval = entity.getId();
-        Long toUse = atom.get();
+        Long toUse = atom.getAndIncrement();
         if (longval == null) {
-
             while (accountRepo.containsKey(toUse)) {
-                toUse = atom.incrementAndGet();
+                toUse = atom.getAndIncrement();
+                System.out.println(toUse.intValue());
             }
             entity.setId(toUse.longValue());
-        }
 
-        accountRepo.put(toUse.longValue(), entity);
+        }
+        accountRepo.put(entity.getId(), entity);
         return entity;
     }
 

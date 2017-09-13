@@ -2,7 +2,7 @@ package com.visa.ncg.canteen;
 
 public class Account {
   private int balance;
-  private long id;
+  private Long id = null;
 
   public Account(int initialAmount) {
     balance = initialAmount;
@@ -33,11 +33,15 @@ public class Account {
     balance -= amount;
   }
   public void setId(long id) {
-    this.id = id;
+    this.id = new Long(id);
   }
 
-  public long getId(){
-    return id;
+  public Long getId(){
+    if (id == null) {
+      return null;
+    } else {
+      return id;
+    }
   }
 
 }

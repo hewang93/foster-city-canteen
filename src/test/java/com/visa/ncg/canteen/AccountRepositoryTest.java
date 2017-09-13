@@ -80,10 +80,10 @@ public class AccountRepositoryTest {
         Account a3 = new Account();
         Account a4 = new Account();
         Long a3id = repo.save(a3).getId();
-        repo.save(a4);
+        Long a4id = repo.save(a4).getId();
 
         assertThat(a3id)
-                .isNotEqualTo(a4.getId());
+                .isNotEqualTo(a4id);
 
     }
 
