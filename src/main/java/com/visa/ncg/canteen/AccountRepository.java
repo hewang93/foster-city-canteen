@@ -3,6 +3,7 @@ package com.visa.ncg.canteen;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
@@ -16,7 +17,7 @@ public class AccountRepository {
     public  AccountRepository()
     {
         AccountMap = new HashMap<Long, Account>();
-        currentId = new AtomicLong();
+        currentId = new AtomicLong(1);
     }
 
     public AccountRepository(List<Account> accountList){
@@ -48,7 +49,7 @@ public class AccountRepository {
 
     public List<Account> findAll() {
         // return all accounts as a List, or an empty List if there are no accounts
-        return null;
+        return new ArrayList<Account>(AccountMap.values());
     }
 
 }

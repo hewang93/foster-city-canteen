@@ -3,6 +3,7 @@ package com.visa.ncg.canteen;
 public class Account {
   private int balance;
   long id;
+  private String name;
 
   public long getID(){
     return id;
@@ -40,5 +41,13 @@ public class Account {
       throw new NegativeWithdrawException();
     }
     balance -= amount;
+  }
+
+  public void setName (String name){
+    this.name = name;
+  }
+
+  public String getName(){
+    return name;
   }
 }
